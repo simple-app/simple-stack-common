@@ -39,14 +39,14 @@ module.exports = exports = function(config) {
    */
   pack
     .configure(function() {
+      pack.locals.pretty = true;
       // Remove it for security
       pack.set("x-powered-by", false);
     })
     .configure("production", function() {
-
+      pack.locals.pretty = false;
     })
     .configure("development", function() {
-      pack.locals.pretty = true;
       // Log our requests
       pack.useBefore("base", express.logger('dev'));
     });
