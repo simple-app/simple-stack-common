@@ -1,19 +1,19 @@
 /**
  * Module dependencies
  */
-var app = require("./app")
-  , should = require("should")
-  , supertest = require("supertest");
+var app = require('./app');
+var should = require('should');
+var supertest = require('supertest');
 
-describe("simple-stack-common", function() {
+describe('simple-stack-common', function() {
 
-  it("should start a server", function(done) {
+  it('should start a server', function(done) {
     supertest(app)
-      .get("/")
+      .get('/')
       .end(function(err, res) {
         if(err) return done(err);
         if(!res.ok) return done(new Error(res.text));
-        res.text.should.eql("it works");
+        res.text.should.eql('it works');
         done();
       });
   });

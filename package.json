@@ -16,11 +16,10 @@
   "dependencies": {
     "pack-n-stack": "~0.1.0",
     "connect-base": "~0.1.0",
-    "express": "~3.2.0",
-    "connect": "~2.7.6",
-    "connect-metric": "~0.2.0",
+    "connect-metric": "~1.0.0",
     "empty-favicon": "~0.1.0",
-    "metric-log": "~0.2.2"
+    "express": "~3.4.0",
+    "connect": "~2.9.0"
   },
   "devDependencies": {
     "should": "~1.2.2",

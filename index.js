@@ -2,9 +2,9 @@
 /**
  * Module dependencies.
  */
-var pns = require("pack-n-stack")
-  , express = require("express")
-  , connect = require("connect");
+var pns = require('pack-n-stack');
+var express = require('express');
+var connect = require('connect');
 
 /**
  * Expose the stack
@@ -20,19 +20,19 @@ module.exports = exports = function(config) {
    */
   pack
     // Pre-router stack
-    .use("/favicon.ico", require("empty-favicon")())
-    .use(require("connect-base")(config.base))
-    .use(require("connect-metric")((config.metric||{}).context, (config.metric||{}).options))
+    .use('/favicon.ico', require('empty-favicon')())
+    .use(require('connect-base')(config.base))
+    .use(require('connect-metric')((config.metric||{}).context, (config.metric||{}).options))
     .use(express.methodOverride())
     .use(express.bodyParser())
-    .use(require("./lib/request-logger")())
+    .use(require('./lib/request-logger')())
     .use(express.compress())
 
     // Router
     .use(pack.router)
 
     // Post-router stack
-    .use(require("./lib/error-logger")());
+    .use(require('./lib/error-logger')());
 
   /**
    * Configuration
@@ -41,14 +41,14 @@ module.exports = exports = function(config) {
     .configure(function() {
       pack.locals.pretty = true;
       // Remove it for security
-      pack.set("x-powered-by", false);
+      pack.set('x-powered-by', false);
     })
-    .configure("production", function() {
+    .configure('production', function() {
       pack.locals.pretty = false;
     })
-    .configure("development", function() {
+    .configure('development', function() {
       // Log our requests
-      pack.useBefore("base", express.logger('dev'));
+      pack.useBefore('base', express.logger('dev'));
     });
 
   return pack;
