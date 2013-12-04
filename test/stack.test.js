@@ -11,11 +11,17 @@ describe('simple-stack-common', function() {
     supertest(app)
       .get('/')
       .end(function(err, res) {
-        if(err) return done(err);
-        if(!res.ok) return done(new Error(res.text));
+        if (err) return done(err);
+        if (!res.ok) return done(new Error(res.text));
         res.text.should.eql('it works');
         done();
       });
+  });
+
+  it('should handle errors', function(done) {
+    supertest(app)
+      .get('/error')
+      .expect(501, done);
   });
 
 });

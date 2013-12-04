@@ -33,3 +33,9 @@ app.configure(function() {
 app.get('/', function(req, res, next){
   res.send('it works');
 });
+
+app.get('/error', function(req, res, next){
+  var err = new Error('A wild error appears!');
+  err.status = 501;
+  next(err);
+});
