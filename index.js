@@ -21,10 +21,12 @@ module.exports = exports = function(config) {
   pack
     // Pre-router stack
     .use('/favicon.ico', require('empty-favicon')())
+    .use('', 'responseTime', express.responseTime())
     .use(require('connect-base')(config.base))
     .use(require('connect-metric')((config.metric||{}).context, (config.metric||{}).options))
     .use(express.methodOverride())
-    .use(express.bodyParser())
+    .use(express.json())
+    .use(express.urlencoded())
     .use(require('./lib/request-logger')())
     .use(express.compress())
 

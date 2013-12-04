@@ -19,7 +19,7 @@ app.configure(function() {
   });
 
   // Test the connect-base
-  app.useBefore('router', function bsaeTest(req, res, next) {
+  app.useBefore('router', function baseTest(req, res, next) {
     res.set('x-base', req.base);
     next();
   });

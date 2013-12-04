@@ -20,7 +20,7 @@
     "metric-log": "~1.0.0",
     "empty-favicon": "~0.1.0",
     "express": "~3.4.0",
-    "connect": "~2.9.0"
+    "connect": "~2.11.0"
   },
   "devDependencies": {
     "should": "~1.2.2",
