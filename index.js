@@ -24,9 +24,9 @@ module.exports = exports = function(config) {
     .use('', 'responseTime', express.responseTime())
     .use(require('connect-base')(config.base))
     .use(require('connect-metric')((config.metric||{}).context, (config.metric||{}).options))
-    .use(express.methodOverride())
     .use(express.json())
     .use(express.urlencoded())
+    .use(express.methodOverride())
     .use(require('./lib/request-logger')())
     .use(express.compress())
 
